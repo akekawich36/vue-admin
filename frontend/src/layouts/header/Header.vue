@@ -1,21 +1,19 @@
 <template>
-  <a-layout-header class="ps-2">
-    <menu-unfold-outlined
+  <a-layout-header
+    class="ps-4 fixed w-full"
+  >
+    <menu-fold-outlined
       class="trigger"
       @click="toggleSidebar"
       v-if="!collapseSidebar"
     />
-    <menu-fold-outlined
-      class="trigger"
-      @click="toggleSidebar"
-      v-if="collapseSidebar"
-    />
+    <menu-unfold-outlined class="trigger" @click="toggleSidebar" v-else />
   </a-layout-header>
 </template>
 
 <script setup>
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue';
-import { defineProps, defineEmits } from 'vue';
+import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons-vue";
+import { defineProps, defineEmits } from "vue";
 
 defineProps({
   collapseSidebar: {
@@ -41,9 +39,5 @@ const toggleSidebar = () => {
 
 .trigger:hover {
   color: #1890ff;
-}
-
-.ant-layout-header{
-    padding-inline: 16px;
 }
 </style>

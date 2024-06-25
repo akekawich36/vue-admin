@@ -2,15 +2,18 @@
   <div class="h-screen">
     <a-layout class="h-full">
       <SidebarVue v-model:collapseSidebar="collapseSidebar" />
-      <a-layout>
+      <a-layout
+        :class="[
+          'transition-all duration-200',
+          collapseSidebar ? 'ms-[80px]' : 'ms-[250px]',
+        ]"
+      >
         <HeaderVue
           :collapseSidebar="collapseSidebar"
           @toggleSidebar="toggleSidebar"
         />
-        <a-layout-content class="p-4">
-          <div class="text-white p-4 h-full">
-            <router-view />
-          </div>
+        <a-layout-content class="mt-16 p-4">
+          <router-view />
         </a-layout-content>
       </a-layout>
     </a-layout>
@@ -18,9 +21,22 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import SidebarVue from "./siderbar/Sidebar.vue";
 import HeaderVue from "./header/Header.vue";
+
+import { ref, watch, onMounted } from "vue";
+import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+
+const breakpoints = useBreakpoints(breakpointsTailwind);
+
+// const mdScreen = breakpoints.smallerOrEqual("md");
+// const smScreen = breakpoints.smallerOrEqual("sm");
+
+// onMounted(() => {
+//   if (mdScreen.value && !smScreen.value) {
+//     collapseSidebar.value = !collapseSidebar.value;
+//   }
+// });
 
 const collapseSidebar = ref(false);
 
