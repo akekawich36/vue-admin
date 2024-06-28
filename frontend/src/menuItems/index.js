@@ -4,21 +4,25 @@ import {
   DesktopOutlined,
   InboxOutlined,
   AppstoreOutlined,
+  HomeOutlined,
 } from "@ant-design/icons-vue";
 import { h } from "vue";
+import { useRouter } from "vue-router";
 
 const mainMenu = [
   {
     key: "1",
-    icon: () => h(PieChartOutlined),
-    label: "Option 1",
-    title: "Option 1",
+    icon: () => h(HomeOutlined),
+    label: "หน้าแรก",
+    title: "หน้าแรก",
+    link: "/",
   },
   {
     key: "2",
     icon: () => h(DesktopOutlined),
-    label: "Option 2",
-    title: "Option 2",
+    label: "Student",
+    title: "Student",
+    link: "/student",
   },
   {
     key: "3",

@@ -16,12 +16,19 @@
 const routes = [
   {
     path: "/",
-    component: import('../layouts/MainLayout.vue'),
-    redirect: "/dashboard",
+    breadcrumbName: "Home",
+    component: import("../layouts/MainLayout.vue"),
+    redirect: "/",
     children: [
       {
-        path: "/dashboard",
-        component: import('../views/index.vue'),
+        path: "/",
+        breadcrumbName: "Home",
+        component: import("../views/index.vue"),
+      },
+      {
+        path: "/student",
+        breadcrumbName: "Student",
+        component: import("../views/student.vue"),
       },
     ],
   },

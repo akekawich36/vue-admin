@@ -1,13 +1,13 @@
 <template>
   <a-layout-header
-    class="ps-4 fixed w-full"
+    class="ps-4 fixed w-full bg-layout shadow-boxHeader"
   >
     <menu-fold-outlined
-      class="trigger"
+      class="trigger text-black"
       @click="toggleSidebar"
       v-if="!collapseSidebar"
     />
-    <menu-unfold-outlined class="trigger" @click="toggleSidebar" v-else />
+    <menu-unfold-outlined class="trigger text-black" @click="toggleSidebar" v-else />
   </a-layout-header>
 </template>
 

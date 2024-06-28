@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <a-style-provider hash-priority="high">
     <router-view />
-  </div>
+  </a-style-provider>
 </template>
 
 <style scoped>

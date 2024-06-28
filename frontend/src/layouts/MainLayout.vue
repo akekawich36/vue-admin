@@ -5,14 +5,15 @@
       <a-layout
         :class="[
           'transition-all duration-200',
-          collapseSidebar ? 'ms-[80px]' : 'ms-[250px]',
+          collapseSidebar ? 'ms-[0]' : 'ms-[252px]',
         ]"
       >
         <HeaderVue
           :collapseSidebar="collapseSidebar"
           @toggleSidebar="toggleSidebar"
         />
-        <a-layout-content class="mt-16 p-4">
+        <a-layout-content class="mt-16 p-4 bg-layout">
+          <Breadcrumb />
           <router-view />
         </a-layout-content>
       </a-layout>
@@ -23,6 +24,7 @@
 <script setup>
 import SidebarVue from "./siderbar/Sidebar.vue";
 import HeaderVue from "./header/Header.vue";
+import Breadcrumb from "./breadcrumb/Breadcrumb.vue";
 
 import { ref, watch, onMounted } from "vue";
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
