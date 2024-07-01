@@ -54,6 +54,9 @@ const props = defineProps({
   suffix: {
     type: [String, Object],
   },
+  onValueChange: {
+    type: Function,
+  },
 });
 
 const state = reactive({
@@ -71,7 +74,8 @@ const state = reactive({
 watch(
   () => state.value,
   (newValue, oldValue) => {
-    console.log('newValuenewValue',newValue);
+    emit("update:inputValue", newValue);
+    // onValueChange(newValue);
   }
 );
 </script>

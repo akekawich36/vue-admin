@@ -15,7 +15,6 @@
 
 <script setup>
 import routers from "../../routes/index.js";
-console.log("🚀 ~ routers:", routers)
 </script>
 
 <style lang="scss" scoped></style>

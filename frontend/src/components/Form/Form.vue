@@ -16,6 +16,11 @@
         id="Username"
         :isRequired="true"
         :inputValue="formState.username"
+        :onValueChange="
+          (value) => {
+            formState.username = value;
+          }
+        "
       />
     </a-form-item>
 

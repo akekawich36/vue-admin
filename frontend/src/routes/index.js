@@ -18,10 +18,10 @@ const routes = [
     path: "/",
     breadcrumbName: "Home",
     component: import("../layouts/MainLayout.vue"),
-    redirect: "/",
+    redirect: "/home",
     children: [
       {
-        path: "/",
+        path: "/home",
         breadcrumbName: "Home",
         component: import("../views/index.vue"),
       },
@@ -29,6 +29,11 @@ const routes = [
         path: "/student",
         breadcrumbName: "Student",
         component: import("../views/student.vue"),
+      },
+      {
+        path: "/table",
+        breadcrumbName: "Table",
+        component: import("../views/dataTable.vue"),
       },
     ],
   },

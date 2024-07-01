@@ -1,44 +1,22 @@
 <template>
   <a-layout-sider
-    class="fixed h-screen transition-all duration-200 bg-layout shadow-boxSidebar"
-    :class="
-      collapsed
-        ? 'w-[0] min-w-[0] px-0'
-        : 'max-w-[250px] flex-[0_0_250px] w-[250px] px-2'
-    "
+    class="lg:px-2 p-0 fixed h-screen bg-layout shadow-boxSidebar"
     :trigger="null"
     collapsible
     v-model:collapsed="collapsed"
+    :collapsedWidth="!lowerThanSm ? '80' : '0'"
+    :width="!lowerThanSm ? '250' : '0'"
   >
     <div class="logo" />
-    <!-- <a-config-provider
-      :theme="{
-        components: {
-          Menu: {
-            colorItemBgSelected: 'red',
-            colorItemTextSelected: '#FFF',
-            radiusItem: '24px',
-            algorithm: true
-          },
-        },
-      }"
-    > -->
-    <a-menu
-      class="border-0"
-      v-model:openKeys="state.openKeys"
-      v-model:selectedKeys="state.selectedKeys"
-      mode="inline"
-      :inline-collapsed="state.collapsed"
-      :items="mainMenu"
-      @click="(item) => menuClicked(item)"
-    ></a-menu>
-    <!-- </a-config-provider> -->
+    <Menu />
   </a-layout-sider>
 </template>
 
 <script setup>
 import { defineEmits, defineProps, ref, watch, reactive } from "vue";
 import { useRouter } from "vue-router";
+
+import Menu from "../Menu/Menu.vue";
 import mainMenu from "../../menuItems/index.js";
 
 const router = useRouter();
@@ -47,7 +25,12 @@ const emit = defineEmits(["update:collapseSidebar"]);
 const props = defineProps({
   collapseSidebar: {
     type: Boolean,
-    required: true,
+  },
+  moreThanLg: {
+    type: Boolean,
+  },
+  lowerThanSm: {
+    type: Boolean,
   },
 });
 
@@ -60,14 +43,22 @@ watch(
   }
 );
 
+watch(
+  () => props.collapseDrawer,
+  (newVal) => {
+    collapsedDrawer.value = newVal;
+  }
+);
+
 watch(collapsed, (newVal) => {
   emit("update:collapseSidebar", newVal);
 });
 
 const state = reactive({
   collapsed: false,
-  openKeys: [""],
-  preOpenKeys: [""],
+  openKeys: ["1"],
+  preOpenKeys: ["1"],
+  selectedKeys: ["1"],
 });
 
 watch(
@@ -94,25 +85,5 @@ const menuClicked = (item) => {
   height: 32px;
   background: rgba(255, 255, 255, 0.3);
   margin: 16px;
-}
-
-.ant-menu-item,
-.ant-menu-submenu-title {
-  border-radius: 1.5rem !important;
-  height: 2.5rem !important;
-}
-
-.ant-menu-submenu-selected .ant-menu-submenu-title {
-  color: #f0659a !important;
-}
-
-.ant-menu-item-selected {
-  background-color: #f0659a !important;
-  border-radius: 1.5rem !important;
-  color: #fff !important;
-}
-
-.ant-menu-inline .ant-menu-sub.ant-menu-inline {
-  background-color: #fff !important;
 }
 </style>

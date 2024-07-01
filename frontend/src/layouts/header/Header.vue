@@ -1,13 +1,19 @@
 <template>
   <a-layout-header
-    class="ps-4 fixed w-full bg-layout shadow-boxHeader"
+    class="px-4 fixed bg-layout shadow-boxHeader flex items-center justify-between w-full"
+    :class="classProps"
   >
     <menu-fold-outlined
       class="trigger text-black"
-      @click="toggleSidebar"
       v-if="!collapseSidebar"
+      @click="toggleSidebar"
     />
-    <menu-unfold-outlined class="trigger text-black" @click="toggleSidebar" v-else />
+    <menu-unfold-outlined
+      class="trigger text-black"
+      v-else
+      @click="toggleSidebar"
+    />
+    <div class="text-black">test</div>
   </a-layout-header>
 </template>
 
@@ -19,6 +25,12 @@ defineProps({
   collapseSidebar: {
     type: Boolean,
     required: true,
+  },
+  drawerActive: {
+    type: Boolean,
+  },
+  classProps: {
+    type: String,
   },
 });
 

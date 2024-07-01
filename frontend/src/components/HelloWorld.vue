@@ -16,7 +16,6 @@ const count = ref(0);
     <h1>{{ msg }}</h1>
 
     <Form />
-    <TextField id="name" label="ทดสอบ" value="feqfeq" />
 
     <div class="card">
       <button type="button" @click="count++">count is {{ count }}</button>

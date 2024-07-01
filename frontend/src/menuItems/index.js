@@ -29,6 +29,7 @@ const mainMenu = [
     icon: () => h(InboxOutlined),
     label: "Option 3",
     title: "Option 3",
+    link: "/table"
   },
   {
     key: "sub1",
