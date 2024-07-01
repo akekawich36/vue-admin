@@ -3,7 +3,7 @@ import { ref, h } from "vue";
 import TextField from "../components/TextField/TextField.vue";
 import ButtonVue from "../components/Button/Button.vue";
 import DatePicker from "../components/DatePicker/DatePicker.vue";
-import service from "../service/dateTime";
+import service from "../services/dateService";
 // import Form from "../components/Form/Form.vue";
 
 defineProps({
