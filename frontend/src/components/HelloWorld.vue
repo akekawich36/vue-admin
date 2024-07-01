@@ -1,22 +1,32 @@
 <script setup>
-import { ref } from "vue";
+import { ref, h } from "vue";
 import TextField from "../components/TextField/TextField.vue";
-import Form from "../components/Form/Form.vue";
-import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons-vue";
+import ButtonVue from "../components/Button/Button.vue";
+import DatePicker from "../components/DatePicker/DatePicker.vue";
+import service from "../service/dateTime";
+// import Form from "../components/Form/Form.vue";
 
 defineProps({
   msg: String,
 });
 
 const count = ref(0);
+
+const testingFunction = () => {
+  console.log("fekopfkwpefkopew");
+};
 </script>
 
 <template>
   <div>
     <h1>{{ msg }}</h1>
 
-    <Form />
+    <!-- <Form /> -->
 
+    <ButtonVue :label="'testtt'" :onClick="testingFunction" />
+    <DatePicker />
+
+    <div class="my-4">{{ service.getDateNow() }}</div>
     <div class="card">
       <button type="button" @click="count++">count is {{ count }}</button>
       <p>

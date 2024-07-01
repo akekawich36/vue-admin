@@ -15,7 +15,7 @@ const mainMenu = [
     icon: () => h(HomeOutlined),
     label: "หน้าแรก",
     title: "หน้าแรก",
-    link: "/",
+    link: "/home",
   },
   {
     key: "2",

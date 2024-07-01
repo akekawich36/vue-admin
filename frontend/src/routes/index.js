@@ -16,23 +16,23 @@
 const routes = [
   {
     path: "/",
-    breadcrumbName: "Home",
+    name: "Home",
     component: import("../layouts/MainLayout.vue"),
     redirect: "/home",
     children: [
       {
         path: "/home",
-        breadcrumbName: "Home",
+        name: "Home",
         component: import("../views/index.vue"),
       },
       {
         path: "/student",
-        breadcrumbName: "Student",
+        name: "Student",
         component: import("../views/student.vue"),
       },
       {
         path: "/table",
-        breadcrumbName: "Table",
+        name: "Table",
         component: import("../views/dataTable.vue"),
       },
     ],

@@ -1,10 +1,11 @@
 <template>
   <div class="flex flex-col gap-2">
-    <div class="flex gap-1" v-if="state.label">
+    <!-- <div class="flex gap-1" v-if="state.label">
       <label :for="state.id">{{ state.label }}</label>
       <span v-if="isRequired && state.label" class="text-danger">*</span>
-    </div>
+    </div> -->
     <a-input
+      :disabled="disabled"
       :id="state.id"
       :name="state.name"
       v-model:value="state.value"
@@ -56,6 +57,9 @@ const props = defineProps({
   },
   onValueChange: {
     type: Function,
+  },
+  disabled: {
+    type: Boolean,
   },
 });
 

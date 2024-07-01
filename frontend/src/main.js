@@ -5,6 +5,10 @@ import App from "./App.vue";
 // Ant Design
 import Antd from "ant-design-vue";
 import "ant-design-vue/dist/reset.css";
+import { DatePicker } from 'ant-design-vue';
+
+// dayjs
+import './components/DatePicker/dayjsLocale';  // Corrected import path
 
 // VueX
 import store from "./store";
@@ -20,4 +24,4 @@ const routers = createRouter({
 
 const app = createApp(App);
 
-app.use(store).use(routers).use(Antd).mount("#app");
+app.use(DatePicker).use(store).use(routers).use(Antd).mount("#app");

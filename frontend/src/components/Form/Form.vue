@@ -37,19 +37,7 @@
     </a-form-item>
 
     <a-form-item>
-      <a-config-provider
-        :theme="{
-          components: {
-            Button: {
-              colorPrimary: '#00b96b',
-              colorPrimaryHover: 'red',
-              algoritm: true,
-            },
-          },
-        }"
-      >
-        <a-button type="primary" html-type="submit">Submit</a-button>
-      </a-config-provider>
+      <a-button type="primary" html-type="submit">Submit</a-button>
     </a-form-item>
   </a-form>
 </template>

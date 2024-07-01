@@ -15,7 +15,7 @@
       }"
     >
       <div style="padding: 8px">
-        <a-input
+        <!-- <a-input
           ref="searchInput"
           :placeholder="`Search ${column.dataIndex}`"
           :value="selectedKeys[0]"
@@ -30,7 +30,33 @@
                 clearFilters
               )
           "
+        /> -->
+        <a-input
+          ref="searchInput"
+          :placeholder="`Search ${column.dataIndex}`"
+          :value="selectedKeys[0]"
+          style="width: 188px; margin-bottom: 8px; display: block"
+          @change="
+            (e) => setSelectedKeys(e.target.value ? [e.target.value] : [])
+          "
+          @pressEnter="handleSearch(selectedKeys, confirm, column.dataIndex)"
         />
+        <a-button
+          type="primary"
+          size="small"
+          style="width: 90px; margin-right: 8px"
+          @click="handleSearch(selectedKeys, confirm, column.dataIndex)"
+        >
+          <template #icon><SearchOutlined /></template>
+          Search
+        </a-button>
+        <a-button
+          size="small"
+          style="width: 90px"
+          @click="handleReset(clearFilters)"
+        >
+          Reset
+        </a-button>
       </div>
     </template>
     <template #customFilterIcon="{ filtered }">
@@ -96,7 +122,7 @@ const columnsWithHandlers = props.columns.map((column) => {
           setTimeout(() => {
             searchInput.value?.focus();
           }, 100);
-        } 
+        }
         // else {
         //   handleReset(clearFilter.value);
         // }
@@ -106,7 +132,13 @@ const columnsWithHandlers = props.columns.map((column) => {
   return column;
 });
 
-const handleInputChange = (e, setSelectedKeys, confirm, dataIndex, clearFilters) => {
+const handleInputChange = (
+  e,
+  setSelectedKeys,
+  confirm,
+  dataIndex,
+  clearFilters
+) => {
   setSelectedKeys(e.target.value ? [e.target.value] : []);
   handleSearch([e.target.value], confirm, dataIndex, clearFilters);
 };
