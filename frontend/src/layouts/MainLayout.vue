@@ -51,9 +51,9 @@
 </template>
 
 <script setup>
-import SidebarVue from "./Siderbar/Sidebar.vue";
-import HeaderVue from "./Header/Header.vue";
-import Breadcrumb from "./Breadcrumb/Breadcrumb.vue";
+import SidebarVue from "./siderbar/Sidebar.vue";
+import HeaderVue from "./header/Header.vue";
+import Breadcrumb from "./breadcrumb/Breadcrumb.vue";
 import Drawer from "./Drawer/Drawer.vue";
 
 import { ref, watch, onMounted, onBeforeMount } from "vue";

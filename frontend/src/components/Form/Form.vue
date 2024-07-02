@@ -7,7 +7,8 @@
     @finish="onFinish"
     @finishFailed="onFinishFailed"
   >
-    <a-form-item
+    <a-form-item  
+      class="mb-2"
       name="password"
       :rules="[{ required: true, message: 'Please input your username!' }]"
     >
@@ -25,6 +26,7 @@
     </a-form-item>
 
     <a-form-item
+    class="mb-2"
       label="Password"
       name="password"
       :rules="[{ required: true, message: 'Please input your password!' }]"

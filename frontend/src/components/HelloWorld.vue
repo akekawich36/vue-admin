@@ -3,8 +3,9 @@ import { ref, h } from "vue";
 import TextField from "../components/TextField/TextField.vue";
 import ButtonVue from "../components/Button/Button.vue";
 import DatePicker from "../components/DatePicker/DatePicker.vue";
+import RangePicker from "../components/RangePicker/RangePicker.vue";
 import service from "../services/dateService";
-// import Form from "../components/Form/Form.vue";
+import Form from "../components/Form/Form.vue";
 
 defineProps({
   msg: String,
@@ -21,10 +22,11 @@ const testingFunction = () => {
   <div>
     <h1>{{ msg }}</h1>
 
-    <!-- <Form /> -->
+    <Form />
 
     <ButtonVue :label="'testtt'" :onClick="testingFunction" />
     <DatePicker />
+    <RangePicker />
 
     <div class="my-4">{{ service.getDateNow() }}</div>
     <div class="card">
